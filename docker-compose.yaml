@@ -8,8 +8,8 @@ services:
       published: 3306
       protocol: tcp
     environment: 
-    - MYSQL_ROOT_PASSWORD=${PASSWORD}
-    - MYSQL_DATABASE=flask-db 
+     MYSQL_ROOT_PASSWORD: ${PASSWORD}
+     MYSQL_DATABASE: flask-db 
 
   flask-app:
     build: ./flask-app
@@ -19,7 +19,8 @@ services:
       protocol: tcp
     depends_on:
      - mysql
-   
+    environment:
+      DATABASE: ${DATABASE} 
   nginx:
     image: nginx:latest
     ports:
