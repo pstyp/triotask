@@ -1,7 +1,8 @@
-version: '3.7'
+version: '3.3'
 services:
   mysql:
     build: ./db
+    image: pstyp94/trio
     command: --default-authentication-plugin=mysql_native_password
     ports:
     - target: 3306
@@ -13,6 +14,7 @@ services:
 
   flask-app:
     build: ./flask-app
+    image: pstyp94/trio2
     ports:
     - target: 5000
       published: 5000
